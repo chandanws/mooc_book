@@ -12,6 +12,8 @@ class HashTable:
     [77, 44, None, None, 26, 93, None, None, None, 31, 54]
     >>> h.data
     ['goat', None, None, None, 'dog', 'lion', None, None, None, 'cow', 'cat']
+    >>> 54 in h
+    True
     """
     def __init__(self):
         self.size = 11
@@ -87,11 +89,8 @@ class HashTable:
         """
         定义了使用in和not in进行成员测试时类的行为
         """
-        for key in self.slots:
-            if key == item:
-                return True
+        return self.get(item) is not None
 
-        return False
 
 if __name__ == "__main__":
     import doctest
