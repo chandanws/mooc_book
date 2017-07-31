@@ -14,10 +14,11 @@ class UniversalHash:
     True
     """
     def __init__(self):
-        (self.p, self.a, self.b) = self.generate_hash_constants()
-        self.size = self.p
+        self.size = 100
         self.slots = [None] * self.size
-        self.data = [None]* self.size
+        self.data = [None] * self.size
+        (self.p, self.a, self.b) = self.generate_hash_constants()
+
 
     def generate_hash_constants(self):
         """
@@ -51,7 +52,7 @@ class UniversalHash:
         """
         hash_function implements the simple remainder method
         """
-        return round(self.a * key + self.b) % self.p
+        return round(self.a * key + self.b) % self.p % self.size
 
     def rehash(self, old_hash, size):
         """
@@ -115,6 +116,14 @@ class UniversalHash:
         定义了使用in和not in进行成员测试时类的行为
         """
         return self.get(item) is not None
+
+    def __iter__(self):
+        """
+        iterator
+        """
+        for item in self.slots:
+            if item is not None:
+                yield item
 
 if __name__ == "__main__":
     import doctest
