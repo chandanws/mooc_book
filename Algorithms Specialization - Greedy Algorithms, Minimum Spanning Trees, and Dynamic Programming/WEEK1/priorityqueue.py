@@ -73,7 +73,7 @@ class PriorityQueue:
 		"""
 		delete the min-vertex of heap array, which always in the first position.
 		"""
-		retval = self.heapArray[1][1]
+		retval = self.heapArray[1]
 		self.heapArray[1] = self.heapArray[self.currentSize]
 		self.currentSize = self.currentSize - 1
 		self.heapArray.pop()
