@@ -90,8 +90,6 @@ class DisjointSet:
 			listy.setlength = len(listx) + len(listy)
 			self.sets.remove(listx)
 
-
-
 	def find_set(self, node):
 		"""
 		returns the representative of the set containing x
