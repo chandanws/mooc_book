@@ -72,7 +72,7 @@ class BigClustring:
 		cluster nodes with 0-1-2 distances
 		"""
 
-		# first cluster the 0 distance nodes
+		# first, cluster the 0 distance nodes
 		for key, val in self.hash_table.values():
 			if len(val) > 1:
 				# union
@@ -81,7 +81,7 @@ class BigClustring:
 						if val1 != val2:
 							self.disjoint_set.union(val1, val2)
 
-		# second cluster the 1-2 distance nodes
+		# second, cluster the 1-2 distance nodes
 		node = 1
 		for val in self.val:
 			neighbors = self.neighbors(val)
