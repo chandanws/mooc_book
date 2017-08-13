@@ -1,6 +1,5 @@
 import unittest
 import sys
-
 sys.setrecursionlimit(3000)
 
 
@@ -12,7 +11,6 @@ def knapSack(val, wt, capacity):
 	wt: weight
 	capacity: capacity
 	"""
-
 	def max_value(i, j):
 		# base case
 		if i == 0:
@@ -23,6 +21,7 @@ def knapSack(val, wt, capacity):
 			return hash_table[(i, j)]
 		else:
 			if wt[i - 1] > j:
+
 				# only case 1
 				max_val = max_value(i - 1, j)
 				hash_table[(i, j)] = max_val
@@ -33,17 +32,14 @@ def knapSack(val, wt, capacity):
 				case2 = max_value(i - 1, j - wt[i - 1]) + val[i - 1]
 				max_val = max(case1, case2)
 				hash_table[(i, j)] = max_val
-
-			return max_val
+		return max_val
 
 	hash_table = {}
 	return max_value(len(val), capacity)
 
 
-
 class TestKnapsack(unittest.TestCase):
-
-	def notests_final(self):
+	def tests_final(self):
 		values = []
 		weights = []
 		with open('input_random_44_2000000_2000.txt') as infile:
@@ -58,10 +54,10 @@ class TestKnapsack(unittest.TestCase):
 		if n != len(values):
 			raise ValueError
 
-		max_val = knapSack({}, values, weights, n, capacity)
+		max_val = knapSack(values, weights, capacity)
 		self.assertEqual(max_val, 49957183)
 
-	def test_large(self):
+	def notest_large(self):
 		values = []
 		weights = []
 		with open('input_random_29_10000_1000.txt') as infile:
