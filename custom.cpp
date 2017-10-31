@@ -31,7 +31,7 @@ int main()
 {
 	customer c, d;
 	c.set_name("pohl", "Ira");
-	c.set_kind(c.wholesale);
+	c.set_kind(customer::wholesale);
 	c.print();
 	cout << "\n Your PC cost "
 		<< 900*(1-c.price_discount())
