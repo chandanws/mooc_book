@@ -16,9 +16,11 @@ public:
 int main()
 {
     
+    //写入数据
     CStudent s;
     ofstream OutFile("students.dat", ios::out|ios::binary);
     
+    cout << "Input Name and Score: ";
     while( cin >> s.szName >> s.nScore ) {
         if( strcmp(s.szName, "exit") == 0) //名字为exit则结束
             break;
@@ -26,5 +28,21 @@ int main()
     }
     
     OutFile.close();
+    
+    
+    //读取数据
+    ifstream inFile("students.dat", ios::in| ios::binary);
+    if(!inFile){
+        cout << "error" << endl;
+        return 0;
+    };
+    
+    while(inFile.read((char*) &s, sizeof(s))){
+        int nReadedBytes = inFile.gcount(); //看刚才读了多少字节
+        cout << s.szName << " " << s.nScore << endl;
+    }
+    
+    inFile.close();
+    
     return 0;
 }
