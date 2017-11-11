@@ -1,8 +1,30 @@
-//
-//  封闭类例子程序.cpp
-//  
-//
-//  Created by larry on 11/11/2017.
-//
+#include <iostream>
 
-#include <stdio.h>
+using namespace std;
+
+class CTyre {
+public:
+    CTyre() { cout << "CTyre contructor" << endl; }
+    ~CTyre() { cout << "CTyre destructor" << endl; }
+};
+
+class CEngine {
+public:
+    CEngine() { cout << "CEngine contructor" << endl; }
+    ~CEngine() { cout << "CEngine destructor" << endl; }
+};
+
+class CCar {
+private:
+    CEngine engine;
+    CTyre tyre;
+public:
+    CCar(){ cout << "CCar contructor" << endl; }
+    ~CCar() { cout << "CCar destructor" << endl; }
+};
+
+
+int main(){
+    CCar car;
+    return 0;
+}
