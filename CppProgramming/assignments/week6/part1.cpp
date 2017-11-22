@@ -9,11 +9,13 @@ class A {
         void Do()
         { cout << "A::Do" << endl; }
 };
+
 class B:public A {
     public:
         virtual void Do()
         { cout << "B::Do" << endl; }
 };
+
 class C:public B {
     public:
     void Do( )
@@ -21,12 +23,16 @@ class C:public B {
     void Fun()
     { cout << "C::Fun" << endl; }
 };
-void Call(
-// 在此处补充你的代码
-         )  {
-    p.Fun();  p.Do();
+
+void Call(    B &p     )
+{
+    p.Fun();
+    p.Do();
 }
-int main()  {
-    C c;    Call(c);
+
+int main()
+{
+    C c;
+    Call(c);
     return 0;
 }

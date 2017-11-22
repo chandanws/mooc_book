@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 class A {
     private:
         int nVal;
@@ -9,11 +10,13 @@ class A {
         virtual void Do()
         { cout << "A::Do" << endl; }
 };
+
 class B:public A {
     public:
         virtual void Do()
         { cout << "B::Do" << endl; }
 };
+
 class C:public B {
     public:
         void Do( )
@@ -21,11 +24,11 @@ class C:public B {
         void Fun()
         { cout << "C::Fun" << endl; }
 };
-void Call(
-// 在此处补充你的代码
-         )  {
+
+void Call( A *p)  {
     p->Fun();  p->Do();
 }
+
 int main()  {
     Call( new A() );
     Call( new C() );
